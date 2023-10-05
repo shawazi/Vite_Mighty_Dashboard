@@ -14,10 +14,7 @@ import user_image from "../../assets/images/junior.jpg";
 
 import user_menu from "../../assets/JsonData/user_menus.json";
 
-const curr_user = {
-  display_name: "Jason Bourne",
-  image: user_image,
-};
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const renderNotificationItem = (item, index) => (
   <div className="notification-item" key={index}>
@@ -28,9 +25,17 @@ const renderNotificationItem = (item, index) => (
 
 const renderUserToggle = (user) => (
   <div className="topnav__right-user">
-    <div className="topnav__right-user__image">
+    {/* <div className="topnav__right-user__image">
       <img src={user.image} alt="" />
-    </div>
+    </div> */}
+    <div
+      className="topnav__right-user__image"
+      style={{
+        backgroundImage: `url(${user.image})`,
+        width: "80px", // Adjust the width and height as needed
+        height: "80px",
+      }}
+    ></div>
     <div className="topnav__right-user__name">{user.display_name}</div>
   </div>
 );
@@ -45,13 +50,28 @@ const renderUserMenu = (item, index) => (
 );
 
 const Topnav = () => {
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const userData = useSelector((state) => state.user.userData);
+  let curr_user;
+  if (isLoggedIn) {
+    curr_user = {
+      display_name: userData.displayName,
+      image: userData.photoURL,
+    };
+  } else {
+    curr_user = {
+      display_name: "John Doe",
+      image: user_image,
+    };
+  }
+
+  console.log("userData.photoURL:", userData?.photoURL);
+  console.log("user.image:", curr_user.image);
+
   return (
     <div className="topnav">
       <div className="topnav__search">
-        <input
-          type="text"
-          placeholder="Search here..."
-        />
+        <input type="text" placeholder="Search here..." />
         <i className="bx bx-search"></i>
       </div>
       <div className="topnav__right">

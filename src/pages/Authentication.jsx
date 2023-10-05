@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { Box, Center, Text, Input, Button, Container, FormControl } from "@chakra-ui/react";
 import { signInWithPopup, signOut, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../Firebase";
@@ -100,7 +100,6 @@ const Authentication = () => {
           <Box w="100%">
             <Center display="flex" flexDirection="column" gap="2.5em" mt="5em">
 
-              <Text>Log In</Text>
               <form onSubmit={handleLogInWithFirebase}>
                 <Box
                   display="flex"
@@ -110,6 +109,7 @@ const Authentication = () => {
                   p="1em"
                   boxShadow="0px 3px 5px 0px rgba(0,0,0,0.75)"
                 >
+                  <Text>Log In</Text>
                   <FormControl>
                     <Input
                       type="email"

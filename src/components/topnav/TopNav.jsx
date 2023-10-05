@@ -60,7 +60,7 @@ const Topnav = () => {
     };
   } else {
     curr_user = {
-      display_name: "John Doe",
+      display_name: "Anonymous",
       image: user_image,
     };
   }

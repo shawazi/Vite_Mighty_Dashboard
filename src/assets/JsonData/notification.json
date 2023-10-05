@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "bx bx-error",
+        "content": "There was an error when trying to save the new product."
+    },
+    {
+        "icon": "bx bx-package",
+        "content": "Ordered products, forward to carrier."
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Products delivered, finalize order."
+    },
+    {
+        "icon": "bx bx-error",
+        "content": "An error occurred while saving your discount changes, please try again."
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Order completed successfully."
+    }
+]

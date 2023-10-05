@@ -1,0 +1,1 @@
+Initial project was created with CRA, just now migrated to Vite to reduce myriad bugs from CRA

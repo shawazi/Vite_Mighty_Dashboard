@@ -6,6 +6,7 @@ import Dashboard from "../../pages/Dashboard";
 import Customers from "../../pages/Customers";
 import Products from "../../pages/Products";
 import Authentication from "../../pages/Authentication";
+import Register from "../../pages/Register";
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ThemeAction from "../../redux/actions/ThemeAction";
@@ -43,6 +44,7 @@ const Layout = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/products" element={<Products />} />
             <Route path="/authentication" element={<Authentication />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
       </div>

@@ -5,6 +5,10 @@ import {
   Center,
   Divider,
   Flex,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
   Heading,
   HStack,
   Image,
@@ -71,6 +75,22 @@ export function _Divider() {
 
 export function _Flex() {
   return <Flex />;
+}
+
+export function _FormControl() {
+  return <FormControl />;
+}
+
+export function _FormLabel() {
+  return <FormLabel />;
+}
+
+export function _FormErrorMessage() {
+  return <FormErrorMessage />;
+}
+
+export function _FormHelperText() {
+  return <FormHelperText />;
 }
 
 export function _Grid() {

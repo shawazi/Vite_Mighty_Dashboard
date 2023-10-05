@@ -10,7 +10,7 @@ import ThemeMenu from "../thememenu/ThemeMenu";
 
 import notifications from "../../assets/JsonData/notification.json";
 
-import user_image from "../../assets/images/junior.jpg";
+import user_image from "../../assets/images/anon.jpg";
 
 import user_menu from "../../assets/JsonData/user_menus.json";
 
@@ -32,8 +32,8 @@ const renderUserToggle = (user) => (
       className="topnav__right-user__image"
       style={{
         backgroundImage: `url(${user.image})`,
-        width: "80px", // Adjust the width and height as needed
-        height: "80px",
+        width: "70px", // Adjust the width and height as needed
+        height: "70px",
       }}
     ></div>
     <div className="topnav__right-user__name">{user.display_name}</div>
@@ -55,7 +55,7 @@ const Topnav = () => {
   let curr_user;
   if (isLoggedIn) {
     curr_user = {
-      display_name: userData.displayName,
+      display_name: userData.displayName || userData.email,
       image: userData.photoURL,
     };
   } else {
@@ -65,8 +65,8 @@ const Topnav = () => {
     };
   }
 
-  console.log("userData.photoURL:", userData?.photoURL);
-  console.log("user.image:", curr_user.image);
+  // console.log("userData.photoURL:", userData?.photoURL);
+  // console.log("user.image:", curr_user.image);
 
   return (
     <div className="topnav">

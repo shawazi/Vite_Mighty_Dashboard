@@ -1,12 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Authentication = () => {
-
   return (
-    <div>
+    <div>Authentication</div>
+  )
+}
 
-    </div>
-  );
-};
-
-export default Authentication;
+export default Authentication

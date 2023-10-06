@@ -1,14 +1,9 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
 import "./sidebar.css";
-
 import logo from "../../assets/images/favicon.png";
-
 import sidebar_items from "../../assets/JsonData/sidebar_routes.json";
-
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 const SidebarItem = (props) => {
@@ -25,8 +20,6 @@ const SidebarItem = (props) => {
 };
 
 const Sidebar = () => {
-  // eslint-disable-next-line
-  const navigate = useNavigate();
   const location = useLocation();
 
   const activeItem = sidebar_items.findIndex(

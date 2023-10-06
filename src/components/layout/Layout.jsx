@@ -34,7 +34,7 @@ const Layout = () => {
               path="/"
               element={
                 <Outlet>
-                  <Text>Text</Text>
+                  <Text>Page not found.</Text>
                 </Outlet>
               }
             >

@@ -6,6 +6,11 @@ export function div$html() {
     return <div />
 }
 
+
+export function form$html() {
+    return <form />
+}
+
 export function text$text() {
     return <div>Sample text</div>
 }

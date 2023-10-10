@@ -1,12 +1,10 @@
 import React from "react";
-
+import { Box } from "@chakra-ui/react";
 
 const Authentication = () => {
-
   return (
-    <div>
-      Auth
-    </div>
+    <Box>
+    </Box>
   );
 };
 

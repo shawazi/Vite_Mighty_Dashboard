@@ -1,4 +1,3 @@
-
 import React from "react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
@@ -10,6 +9,7 @@ import './assets/css/index.css'
 import Layout from './components/layout/Layout'
 import { createRoot } from 'react-dom/client';
 import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "./theme";
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
@@ -18,12 +18,13 @@ const store = configureStore({
   reducer: rootReducer,
 })
 
+
 document.title = 'Sales Dashboard'
 
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Layout />
       </ChakraProvider>
     </React.StrictMode>

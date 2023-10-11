@@ -1,6 +1,6 @@
 
 import React from "react";
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import rootReducer from './redux/reducers'
 import './assets/boxicons-2.0.7/css/boxicons.min.css'
@@ -14,9 +14,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
-const store = createStore(
-  rootReducer
-)
+const store = configureStore({
+  reducer: rootReducer,
+})
 
 document.title = 'Sales Dashboard'
 

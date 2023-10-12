@@ -5,11 +5,13 @@ import {
   FormLabel,
   Input,
   Button,
+  InputGroup,
+  InputRightElement
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { logIn } from "../../redux/actions/userActions"
-
+import { logIn } from "../../redux/actions/userActions";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -24,7 +26,7 @@ const Register = () => {
     e.preventDefault();
     console.log(userInfo);
     const auth = getAuth();
-    const { email, password } = userInfo
+    const { email, password } = userInfo;
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -32,16 +34,15 @@ const Register = () => {
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
-        }
-        dispatch(logIn(userData))
-        console.log("Logged in!", userData)
+        };
+        dispatch(logIn(userData));
+        console.log("Logged in!", userData);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(errorCode, errorMessage)
+        console.error(errorCode, errorMessage);
       });
-
   };
 
   const handleEmail = (e) => {
@@ -72,7 +73,8 @@ const Register = () => {
       >
         <FormControl>
           <FormLabel>Email</FormLabel>
-          <Input value={userInfo.email}
+          <Input
+            value={userInfo.email}
             name="email"
             type="email"
             placeholder="Email Address"
@@ -81,11 +83,20 @@ const Register = () => {
         </FormControl>
         <FormControl>
           <FormLabel>Password</FormLabel>
-          <Input value={userInfo.password}
-            name="password"
-            type={hidePassword ? "password" : "text"}
-            placeholder="Password"
-            onChange={handlePassword} />
+          <InputGroup >
+            <Input
+              value={userInfo.password}
+              name="password"
+              type={hidePassword ? "password" : "text"}
+              placeholder="Password"
+              onChange={handlePassword}
+            />
+            <InputRightElement width="5em">
+              <Button onClick={() => setHidePassword(!hidePassword)} variant="primary">
+                {hidePassword ? <ViewIcon boxSize={4} /> : <ViewOffIcon boxSize={4} />}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
         </FormControl>
         <Button
           variant="primary"
@@ -94,6 +105,9 @@ const Register = () => {
           rounded
           borderRadius="full"
           type="submit"
+          _hover={{
+            opacity: "50%",
+          }}
         >
           Sign Up
         </Button>
@@ -103,6 +117,9 @@ const Register = () => {
           rounded="full"
           color="white"
           maxW="50%"
+          _hover={{
+            opacity: "0.5",
+          }}
         >
           Sign in with Google
         </Button>

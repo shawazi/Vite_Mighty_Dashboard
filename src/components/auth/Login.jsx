@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import {
+    Box,
     Container,
     FormControl,
     FormLabel,
     Input,
     Button,
+    InputGroup,
+    InputRightElement
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider,
+    signInWithEmailAndPassword,
+} from "firebase/auth";
 import { logIn } from "../../redux/actions/userActions";
-import { provider } from "../../Firebase"
+import { provider } from "../../Firebase";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -31,16 +40,16 @@ const Login = () => {
                 const userData = {
                     displayName: user.displayName,
                     email: user.email,
-                    photoURL: user.photoURL
-                }
-                dispatch(logIn(userData))
+                    photoURL: user.photoURL,
+                };
+                dispatch(logIn(userData));
                 console.log("Logged in successfully.");
             })
 
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.error(errorCode, errorMessage)
+                console.error(errorCode, errorMessage);
             });
     };
 
@@ -85,6 +94,7 @@ const Login = () => {
                 const email = error.customData.email;
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
+                console.log(errorCode, errorMessage, email, credential)
             });
     };
 
@@ -102,7 +112,8 @@ const Login = () => {
             >
                 <FormControl>
                     <FormLabel>Email</FormLabel>
-                    <Input value={userInfo.email}
+                    <Input
+                        value={userInfo.email}
                         name="email"
                         type="email"
                         placeholder="Email Address"
@@ -111,11 +122,21 @@ const Login = () => {
                 </FormControl>
                 <FormControl>
                     <FormLabel>Password</FormLabel>
-                    <Input value={userInfo.password}
-                        name="password"
-                        type={hidePassword ? "password" : "text"}
-                        placeholder="Password"
-                        onChange={handlePassword} />
+
+                    <InputGroup >
+                        <Input
+                            value={userInfo.password}
+                            name="password"
+                            type={hidePassword ? "password" : "text"}
+                            placeholder="Password"
+                            onChange={handlePassword}
+                        />
+                        <InputRightElement width="5em">
+                            <Button onClick={() => setHidePassword(!hidePassword)} variant="primary">
+                                {hidePassword ? <ViewIcon boxSize={4} /> : <ViewOffIcon boxSize={4} />}
+                            </Button>
+                        </InputRightElement>
+                    </InputGroup>
                 </FormControl>
                 <Button
                     variant="primary"
@@ -123,6 +144,7 @@ const Login = () => {
                     border="2px solid white"
                     rounded
                     borderRadius="full"
+                    _hover={{ opacity: "50%" }}
                 >
                     Log In
                 </Button>
@@ -133,6 +155,7 @@ const Login = () => {
                     color="white"
                     maxW="50%"
                     onClick={handleGoogleSignIn}
+                    _hover={{ opacity: "50%" }}
                 >
                     Sign in with Google
                 </Button>

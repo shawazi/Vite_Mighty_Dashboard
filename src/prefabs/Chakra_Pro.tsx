@@ -23,6 +23,9 @@ import {
   AspectRatio,
   Wrap,
   Input,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
   NumberInput,
   RadioGroup,
   Select,
@@ -130,6 +133,20 @@ export function _Image() {
 export function _Input() {
   return <Input placeholder="Basic usage" />;
 }
+
+export function _InputGroup() {
+  return <InputGroup>Input Elements Here</InputGroup>;
+}
+
+export function _InputLeftAddon() {
+  return <InputLeftAddon>Addon Here</InputLeftAddon>;
+}
+
+
+export function _InputRightAddon() {
+  return <InputRightAddon>Addon Here</InputRightAddon>;
+}
+
 
 export function _Link() {
   return (

@@ -82,7 +82,7 @@ export function _FormControl() {
 }
 
 export function _FormLabel() {
-  return <FormLabel />;
+  return <FormLabel>Label Here</FormLabel>;
 }
 
 export function _FormErrorMessage() {

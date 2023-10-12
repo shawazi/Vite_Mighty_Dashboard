@@ -16,7 +16,7 @@ const Authentication = () => {
           {loginView ? "Login" : "Register"}
         </Text>
         {loginView ? <Login /> : <Register />}
-        <Button onClick={handleView} variant="primary">
+         <Button onClick={handleView} variant="primary" mt="4em">
           {loginView ? "Register" : "Login"} Instead
         </Button>
       </Container>

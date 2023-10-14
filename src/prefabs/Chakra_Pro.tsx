@@ -85,7 +85,7 @@ export function _FormControl() {
 }
 
 export function _FormLabel() {
-  return <FormLabel />;
+  return <FormLabel>Label Here</FormLabel>;
 }
 
 export function _FormErrorMessage() {
@@ -142,11 +142,9 @@ export function _InputLeftAddon() {
   return <InputLeftAddon>Addon Here</InputLeftAddon>;
 }
 
-
 export function _InputRightAddon() {
   return <InputRightAddon>Addon Here</InputRightAddon>;
 }
-
 
 export function _Link() {
   return (
